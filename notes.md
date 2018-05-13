@@ -1,6 +1,7 @@
 ##### Right now the form below submits to a missing route in the app. To complete the exercise, do the following:
 
 - [ ] Create the missing /search route
+    - [ ] add `/search` to app `routes`
 - [ ] Ingest the incoming form parameters
 - [ ] Derive a basic set of OCD-IDs from the address (see below for further explanation)
 - [ ] Retrieve upcoming elections from the Democracy Works election API using those OCD-IDs
