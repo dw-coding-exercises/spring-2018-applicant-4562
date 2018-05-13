@@ -16,4 +16,5 @@
     ; practiced destructing in a while :(
     (->> (remove (fn [[_ v]] (empty? v)) m)
          (map (fn [[k v]] [k (clojure.string/lower-case v)]))
+         (map (fn [[k v]] [k (clojure.string/replace v #"\s+" "_")]))
          (into {}))))
