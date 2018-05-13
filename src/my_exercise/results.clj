@@ -22,6 +22,9 @@
          (map (fn [[k v]] [k (clojure.string/replace v #"\s+" "_")]))
          (into {}))))
 
+(defn make-the-call [params]
+  (let [state (:state (parse-form-params params))]
+    (read-string (:body (client/get (str base-uri (state-ocd-id state)))))))
 
 ; how to read a call
 ; (read-string (:body (client/get (str base-uri (state-ocd-id "ca")))))
