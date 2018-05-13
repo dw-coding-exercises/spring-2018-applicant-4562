@@ -9,11 +9,14 @@
 (defroutes app
   (GET "/" [] home/page)
   ; https://gist.github.com/zehnpaard/2071c3f55ed319aa8528d54d90f557e3#file-simple-hiccup-routes-clj-L13
-  (POST "/search" [])
+  ; http://clojure-doc.org/articles/tutorials/basic_web_development.html#set-up-your-routes
+  ; https://stackoverflow.com/a/32284706
+  (POST "/search" [& params] (str "<h1>Hello " params "</h1>"))
+  ; getting a `Invalid anti-forgery token` error
   (route/resources "/")
   (route/not-found "Not found"))
 
 (def handler
   (-> app
-      (wrap-defaults site-defaults)
+      (wrap-defaults (assoc-in site-defaults [:security :anti-forgery] false))
       wrap-reload))
