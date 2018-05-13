@@ -8,7 +8,7 @@
 
 (defroutes app
   (GET "/" [] home/page)
-  (GET "/search" [] "Hello World")
+  (POST "/search" [] (read-string (:body (client/get "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:ca/"))))
   (route/resources "/")
   (route/not-found "Not found"))
 
