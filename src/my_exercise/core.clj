@@ -8,7 +8,8 @@
 
 (defroutes app
   (GET "/" [] home/page)
-  (POST "/search" [] (read-string (:body (client/get "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:ca/"))))
+  ; https://gist.github.com/zehnpaard/2071c3f55ed319aa8528d54d90f557e3#file-simple-hiccup-routes-clj-L13
+  (POST "/search" [])
   (route/resources "/")
   (route/not-found "Not found"))
 
