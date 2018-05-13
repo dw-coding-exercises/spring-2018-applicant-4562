@@ -1,6 +1,7 @@
 (ns my-exercise.core
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
+            [clj-http.client :as client]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [ring.middleware.reload :refer [wrap-reload]]
             [my-exercise.home :as home]))
