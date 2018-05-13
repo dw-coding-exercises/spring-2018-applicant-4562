@@ -12,6 +12,8 @@
            :state    state
            :city     city
            :zip      zip}]
+    ; there are cleaner ways to do this, haven't
+    ; practiced destructing in a while :(
     (->> (remove (fn [[_ v]] (empty? v)) m)
          (map (fn [[k v]] [k (clojure.string/lower-case v)]))
          (into {}))))
